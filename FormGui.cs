@@ -31,8 +31,31 @@ namespace WindowsFormsApplication
 			if(hWnd != IntPtr.Zero){
 				ShowWindow(hWnd, 0/*SW_HIDE*/);
 			}
+// Change png to ico
+/*
+		Image image = Bitmap.FromFile(@"e:\icon.png");
+		String fileName = Path.ChangeExtension(@"e:\icon.png", "ico");
+		Stream IconStream = System.IO.File.OpenWrite(@"e:\icon.ico");
+
+		Bitmap bitmap = new Bitmap(image);
+		bitmap.SetResolution(64, 64);
+		Icon icon = System.Drawing.Icon.FromHandle(bitmap.GetHicon());
+		icon.Save(IconStream);
+		IconStream.Close();
+*/
+		this.Icon = new Icon(@".\icon.ico");
+/*
+		Bitmap bitmap = (Bitmap)Image.FromFile(@"e:\icon.png");
+		Stream stream = System.IO.File.OpenWrite(@"e:\icon.png");
+		this.Icon = Icon.FromHandle(bitmap.GetHicon()).Save(stream);
+*/
+		
+		//this.ShowIcon = true;
 
             InitializeComponent();
+
+		//this.Icon = new System.Drawing.Icon(@"e:\icon.ico");
+		
 
 			this.MinimizeBox = false;
 			this.MaximizeBox = false;
